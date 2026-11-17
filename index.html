@@ -116,7 +116,7 @@ function render(){
     }});
   $("grid").innerHTML=out.length?out.join(""):'<div class="empty">Belum ada aset di sini. Coba kategori atau kata kunci lain.</div>';
 }
-function dl(u){var m=u.match(/^https:\/\/drive\.google\.com\/file\/d\/([\w-]+)/)||u.match(/^https:\/\/drive\.google\.com\/open\?id=([\w-]+)/);return m?"https://drive.google.com/uc?export=download&id="+m[1]:u}
+function dl(u){var m=u.match(/^https:\/\/drive\.google\.com\/file\/d\/([\w-]+)/)||u.match(/^https:\/\/drive\.google\.com\/open\?id=([\w-]+)/);return m?"https://drive.usercontent.google.com/download?id="+m[1]+"&export=download&confirm=t":u}
 document.addEventListener("click",function(e){
   var t=e.target.closest("button");if(!t)return;
   if(t.dataset.k){st[t.dataset.k]=t.dataset.v;filters();render();return}
