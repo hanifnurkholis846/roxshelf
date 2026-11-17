@@ -7,6 +7,14 @@
       "d": "Sistem obby yang menyimpan progres dan checkpoint setiap player. Format .rbxm: di Studio, klik kanan Explorer, pilih Insert from File.",
       "link": "https://drive.google.com/file/d/1yBE8bIA_50rliPQ_WviLEeeQTHKXuwUS/view?usp=sharing",
       "img": "/images/system-summit-kit.jpg"
+    },
+    {
+      "p": 0,
+      "n": "Hangout Kit",
+      "c": "System",
+      "d": "system hangout for your game",
+      "link": "https://drive.google.com/file/d/1GkdDt3Ir8a0PCmLbRsZ6abRGWJnuLqRV/view?usp=sharing",
+      "img": "/images/whatsapp-image-2026-11-17-at-16.53.16.jpeg"
     }
   ]
 }
