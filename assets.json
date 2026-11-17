@@ -1,0 +1,12 @@
+{
+  "assets": [
+    {
+      "n": "System Summit Kit V1",
+      "c": "System",
+      "p": 0,
+      "d": "Sistem obby yang menyimpan progres dan checkpoint setiap player. Format .rbxm: di Studio, klik kanan Explorer, pilih Insert from File.",
+      "link": "https://drive.google.com/file/d/1yBE8bIA_50rliPQ_WviLEeeQTHKXuwUS/view?usp=sharing",
+      "img": "/images/system-summit-kit.jpg"
+    }
+  ]
+}

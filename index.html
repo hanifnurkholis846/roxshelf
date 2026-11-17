@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="RoxShelf: rak aset untuk developer Roblox Studio. System, script, model, plugin, dan UI, gratis dan berbayar.">
+<meta property="og:title" content="RoxShelf – Rak Aset Roblox Studio">
+<meta property="og:description" content="Aset siap pakai untuk game Roblox kamu: gratis dan berbayar.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧱</text></svg>">
+<title>RoxShelf – Rak Aset Roblox Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;700;800&amp;family=DM+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#eef2f7;--surface:#fff;--ink:#18202e;--muted:#5a6679;--line:#d5dce8;--blue:#0a84e8;--blue-ink:#fff;--yellow:#ffc629;--green:#1f9d55;--red:#e5484d;--grid:rgba(24,32,46,.06);--r:14px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121826;--surface:#1b2436;--ink:#eef2f8;--muted:#9aa7bd;--line:#2c3850;--blue:#3da0f5;--blue-ink:#07121f;--green:#43c47d;--grid:rgba(255,255,255,.05);color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#121826;--surface:#1b2436;--ink:#eef2f8;--muted:#9aa7bd;--line:#2c3850;--blue:#3da0f5;--blue-ink:#07121f;--green:#43c47d;--grid:rgba(255,255,255,.05);color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.6 "DM Sans",system-ui,sans-serif;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:40px 40px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+h1,h2,h3{font-family:Rubik,sans-serif;line-height:1.15;margin:0}
+a{color:inherit}:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:2px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px}
+.logo{display:flex;align-items:center;gap:10px;font:800 20px Rubik,sans-serif;text-decoration:none}.logo svg{width:32px;height:32px;flex:none}
+nav{display:flex;gap:6px;align-items:center}nav a{text-decoration:none;font-weight:500;padding:8px 12px;border-radius:10px}nav a:hover{background:var(--surface)}
+.theme{border:2px solid var(--line);background:var(--surface);color:var(--ink);border-radius:10px;padding:6px 10px;cursor:pointer;font:inherit}
+.hero{padding:64px 0 40px}.hero h1{font-size:clamp(2.2rem,6vw,4rem);font-weight:800;max-width:15ch;letter-spacing:-.02em}
+.hero p{max-width:52ch;color:var(--muted);font-size:1.1rem;margin:18px 0 26px}
+.btn{display:inline-block;border:0;cursor:pointer;font:700 15px Rubik,sans-serif;padding:12px 20px;border-radius:12px;text-decoration:none;background:var(--blue);color:var(--blue-ink);box-shadow:0 4px 0 rgba(0,0,0,.25);transition:transform .08s,box-shadow .08s}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 rgba(0,0,0,.25)}.btn.alt{background:var(--yellow);color:#2b2200}
+.stats{display:flex;gap:28px;flex-wrap:wrap;margin-top:34px;color:var(--muted)}.stats b{color:var(--ink);font:800 1.4rem Rubik,sans-serif;display:block}
+.search{width:100%;max-width:420px;border:2px solid var(--line);background:var(--surface);color:var(--ink);border-radius:12px;padding:11px 14px;font:inherit;margin:8px 0 16px}
+.group{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;align-items:center}.group span{color:var(--muted);font-size:14px;margin-right:4px}
+.chip{border:2px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:7px 14px;font:500 14px "DM Sans",sans-serif;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px;margin-top:18px}
+.card{background:var(--surface);border:2px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}
+.thumb{height:120px;position:relative;display:grid;place-items:center;font-size:44px;background-image:radial-gradient(circle at 50% 50%,rgba(255,255,255,.35) 0 5px,transparent 6px);background-size:34px 34px}
+.price{position:absolute;top:10px;right:10px;font:800 13px Rubik,sans-serif;padding:4px 10px;border-radius:8px;background:var(--surface);color:var(--ink)}.price.free{background:var(--green);color:#fff}
+.thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:8px;flex:1}.body h3{font-size:1.05rem}.body p{margin:0;color:var(--muted);font-size:.93rem;flex:1}
+.meta{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:13px;color:var(--muted)}.card .btn{padding:9px 14px;font-size:14px}
+.empty{grid-column:1/-1;text-align:center;padding:40px 10px;color:var(--muted)}
+.adm{display:flex;gap:8px}.mini{border:2px solid var(--line);background:var(--bg);color:var(--ink);border-radius:8px;padding:4px 10px;font:500 13px "DM Sans",sans-serif;cursor:pointer}.mini.del{border-color:var(--red);color:var(--red)}
+.panel{background:var(--surface);border:2px dashed var(--blue);border-radius:var(--r);padding:18px;margin:16px 0}
+.panel h3{margin-bottom:12px}.panel .row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.panel label{display:block;font-size:14px;color:var(--muted)}
+.panel input,.panel select,.panel textarea{width:100%;margin-top:4px;border:2px solid var(--line);background:var(--bg);color:var(--ink);border-radius:10px;padding:9px 12px;font:inherit}
+.panel .acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+section{padding:36px 0}.about{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:20px}
+.about div{background:var(--surface);border:2px solid var(--line);border-radius:var(--r);padding:18px}.about h3{font-size:1.05rem;margin-bottom:6px}.about p{margin:0;color:var(--muted)}
+footer{border-top:2px solid var(--line);margin-top:30px;padding:26px 0 40px;color:var(--muted);font-size:14px}
+#toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,30px);opacity:0;background:var(--ink);color:var(--bg);padding:12px 18px;border-radius:12px;transition:.2s;pointer-events:none;max-width:90vw;z-index:20}
+#toast.show{opacity:1;transform:translate(-50%,0)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+@media (max-width:560px){nav a{display:none}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="logo" href="#top" aria-label="RoxShelf, ke atas"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="5" width="11" height="8" rx="2" fill="#ffc629"></rect><rect x="6" y="3" width="5" height="3" rx="1.5" fill="#ffc629"></rect><rect x="17" y="8" width="9" height="5" rx="2" fill="#0a84e8"></rect><rect x="2" y="13" width="28" height="3" rx="1.5" fill="currentColor"></rect><rect x="4" y="19" width="8" height="8" rx="2" fill="#e5484d"></rect><rect x="15" y="21" width="12" height="6" rx="2" fill="#1f9d55"></rect><rect x="2" y="27" width="28" height="3" rx="1.5" fill="currentColor"></rect></svg>RoxShelf</a>
+  <nav aria-label="Navigasi utama"><a href="#aset">Aset</a><a href="#tentang">Tentang</a><a href="#kontak">Kontak</a><button class="theme" id="theme" aria-label="Ganti tema">🌓</button></nav>
+</div></header>
+<main id="top"><div class="wrap">
+  <div class="hero">
+    <h1>Aset siap pakai untuk game Roblox kamu.</h1>
+    <p>RoxShelf adalah rak aset untuk developer Roblox Studio: system, script, model, plugin, dan UI. Ada yang gratis, ada yang berbayar. Pilih, unduh, langsung masukkan ke game.</p>
+    
+    <div class="stats"><div><b id="nAll">1</b>total aset</div><div><b id="nFree">1</b>gratis</div><div><b id="nPaid">0</b>berbayar</div></div>
+  </div>
+  <section id="aset" style="padding-top:12px">
+    <h2 style="font-size:1.8rem;margin-bottom:12px">Koleksi aset</h2>
+    
+    <input class="search" id="q" type="search" placeholder="Cari aset, misalnya “obby” atau “inventory”" aria-label="Cari aset">
+    <div class="group" id="cats"></div>
+    <div class="group" id="prices"></div>
+    <div class="grid" id="grid" aria-live="polite"></div>
+  </section>
+  <section id="tentang"><h2 style="font-size:1.8rem">Kenapa RoxShelf?</h2>
+    <div class="about">
+      <div><h3>Siap dipakai</h3><p>Setiap aset sudah dites di Roblox Studio dan diberi nama rapi di Explorer.</p></div>
+      <div><h3>Gratis dan berbayar</h3><p>Mulai dari aset gratis untuk belajar, sampai paket premium untuk game serius.</p></div>
+      <div><h3>Dibuat developer</h3><p>Dikerjakan oleh developer Roblox, jadi cocok dengan cara kerja game sungguhan.</p></div>
+    </div></section>
+  <section id="kontak"><h2 style="font-size:1.8rem;margin-bottom:8px">Kontak</h2>
+    <p style="color:var(--muted);max-width:56ch;margin:0 0 16px">Ada pertanyaan, request aset, atau mau menjual aset di sini? Hubungi lewat Discord.</p>
+    <a class="btn" href="https://discord.gg/TJ88w2msv" target="_blank" rel="noopener">Gabung Discord</a></section>
+</div></main>
+<footer><div class="wrap">© 2026 RoxShelf. Situs ini tidak berafiliasi dengan Roblox Corporation.</div></footer>
+<div id="toast" role="status" class=""></div>
+<script>
+var CATS=["System","Script","Model","Plugin","UI","Audio"];
+var LOOK={System:["🧩","#7b5cf0"],Script:["📜","#e0861a"],Model:["🧱","#0a84e8"],Plugin:["🔌","#2a9d8f"],UI:["🖼️","#e5484d"],Audio:["🔊","#c2410c"]};
+var DATA={assets:[]},st={cat:"Semua",price:"Semua",q:""};
+var $=function(i){return document.getElementById(i)};
+function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+function rp(n){return "Rp"+n.toLocaleString("id-ID")}
+function toast(m){var t=$("toast");t.textContent=m;t.classList.add("show");clearTimeout(toast.t);toast.t=setTimeout(function(){t.classList.remove("show")},2800)}
+function filters(){
+  function g(k,label,list){return '<span>'+label+'</span>'+list.map(function(v){return '<button class="chip" data-k="'+k+'" data-v="'+esc(v)+'" aria-pressed="'+(st[k]===v)+'">'+esc(v)+'</button>'}).join("")}
+  $("cats").innerHTML=g("cat","Kategori",["Semua"].concat(CATS));
+  $("prices").innerHTML=g("price","Harga",["Semua","Gratis","Berbayar"]);
+}
+function render(){
+  var A=DATA.assets,q=st.q.toLowerCase();
+  $("nAll").textContent=A.length;$("nFree").textContent=A.filter(function(a){return !(Number(a.p)>0)}).length;$("nPaid").textContent=A.filter(function(a){return Number(a.p)>0}).length;
+  var out=[];A.forEach(function(a,i){
+    var p=Number(a.p)||0;
+    if((st.cat==="Semua"||a.c===st.cat)&&(st.price==="Semua"||(st.price==="Gratis"?p===0:p>0))&&(!q||((a.n||"")+" "+(a.d||"")+" "+(a.c||"")).toLowerCase().indexOf(q)>-1)){
+      var l=LOOK[a.c]||["📦","#0a84e8"],free=p===0;
+      var im=a.img&&/^\/images\/[^"'<>\\\s]+$/.test(a.img)?'<img src="'+esc(a.img)+'" alt="" loading="lazy">':l[0];
+      out.push('<article class="card"><div class="thumb" style="background-color:'+l[1]+'">'+im+'<span class="price'+(free?' free':'')+'">'+(free?'Gratis':rp(p))+'</span></div><div class="body"><h3>'+esc(a.n||"")+'</h3><p>'+esc(a.d||"")+'</p><div class="meta"><span>'+esc(a.c||"")+'</span><button class="btn" data-i="'+i+'">'+(free?'Unduh':'Beli')+'</button></div></div></article>');
+    }});
+  $("grid").innerHTML=out.length?out.join(""):'<div class="empty">Belum ada aset di sini. Coba kategori atau kata kunci lain.</div>';
+}
+document.addEventListener("click",function(e){
+  var t=e.target.closest("button");if(!t)return;
+  if(t.dataset.k){st[t.dataset.k]=t.dataset.v;filters();render();return}
+  if(t.dataset.i){var a=DATA.assets[+t.dataset.i];if(a&&/^https:\/\//.test(a.link||""))window.open(a.link,"_blank","noopener");else toast("Link untuk “"+(a?a.n:"aset")+"” belum tersedia.")}
+});
+$("q").oninput=function(e){st.q=e.target.value;render()};
+$("theme").onclick=function(){var r=document.documentElement,dk=r.dataset.theme?r.dataset.theme==="dark":matchMedia("(prefers-color-scheme:dark)").matches;r.dataset.theme=dk?"light":"dark"};
+filters();
+fetch("assets.json",{cache:"no-cache"}).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(j){DATA.assets=Array.isArray(j.assets)?j.assets:[];render()}).catch(function(){$("grid").innerHTML='<div class="empty">Daftar aset belum bisa dimuat. Coba muat ulang halaman.</div>'});
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+# GANTI "USERNAME-GITHUB-KAMU" dengan username GitHub kamu (satu kali saja).
+backend:
+  name: github
+  repo: USERNAME-GITHUB-KAMU/roxshelf
+  branch: main
+
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+  - name: "katalog"
+    label: "Katalog"
+    files:
+      - name: "assets"
+        label: "Daftar aset"
+        file: "assets.json"
+        fields:
+          - label: "Aset"
+            name: "assets"
+            widget: "list"
+            label_singular: "aset"
+            summary: "{{fields.n}}"
+            fields:
+              - { label: "Nama", name: "n", widget: "string" }
+              # Kalau menambah kategori baru, tambahkan juga di index.html (variabel CATS)
+              - { label: "Kategori", name: "c", widget: "select", options: ["System", "Script", "Model", "Plugin", "UI", "Audio"] }
+              - { label: "Harga (Rupiah, isi 0 untuk gratis)", name: "p", widget: "number", value_type: "int", min: 0, default: 0 }
+              - { label: "Deskripsi", name: "d", widget: "text" }
+              - { label: "Link unduhan atau pembelian (https://)", name: "link", widget: "string", required: false }
+              - { label: "Gambar (opsional)", name: "img", widget: "image", required: false }
