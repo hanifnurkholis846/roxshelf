@@ -116,10 +116,11 @@ function render(){
     }});
   $("grid").innerHTML=out.length?out.join(""):'<div class="empty">Belum ada aset di sini. Coba kategori atau kata kunci lain.</div>';
 }
+function dl(u){var m=u.match(/^https:\/\/drive\.google\.com\/file\/d\/([\w-]+)/)||u.match(/^https:\/\/drive\.google\.com\/open\?id=([\w-]+)/);return m?"https://drive.google.com/uc?export=download&id="+m[1]:u}
 document.addEventListener("click",function(e){
   var t=e.target.closest("button");if(!t)return;
   if(t.dataset.k){st[t.dataset.k]=t.dataset.v;filters();render();return}
-  if(t.dataset.i){var a=DATA.assets[+t.dataset.i];if(a&&/^https:\/\//.test(a.link||""))window.open(a.link,"_blank","noopener");else toast("Link untuk “"+(a?a.n:"aset")+"” belum tersedia.")}
+  if(t.dataset.i){var a=DATA.assets[+t.dataset.i];if(a&&/^https:\/\//.test(a.link||""))window.open(dl(a.link),"_blank","noopener");else toast("Link untuk “"+(a?a.n:"aset")+"” belum tersedia.")}
 });
 $("q").oninput=function(e){st.q=e.target.value;render()};
 $("theme").onclick=function(){var r=document.documentElement,dk=r.dataset.theme?r.dataset.theme==="dark":matchMedia("(prefers-color-scheme:dark)").matches;r.dataset.theme=dk?"light":"dark"};
