@@ -1,7 +1,7 @@
 # GANTI "USERNAME-GITHUB-KAMU" dengan username GitHub kamu (satu kali saja).
 backend:
   name: github
-  repo: USERNAME-GITHUB-KAMU/roxshelf
+  repo: hanifnurkholis846/roxshelf
   branch: main
 
 media_folder: "images"
