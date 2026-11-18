@@ -112,7 +112,7 @@ function render(){
     if((st.cat==="Semua"||a.c===st.cat)&&(st.price==="Semua"||(st.price==="Gratis"?p===0:p>0))&&(!q||((a.n||"")+" "+(a.d||"")+" "+(a.c||"")).toLowerCase().indexOf(q)>-1)){
       var l=LOOK[a.c]||["📦","#0a84e8"],free=p===0;
       var im=a.img&&/^\/images\/[^"'<>\\\s]+$/.test(a.img)?'<img src="'+esc(a.img)+'" alt="" loading="lazy">':l[0];
-      out.push('<article class="card"><div class="thumb" style="background-color:'+l[1]+'">'+im+'<span class="price'+(free?' free':'')+'">'+(free?'Gratis':rp(p))+'</span></div><div class="body"><h3>'+esc(a.n||"")+'</h3><p>'+esc(a.d||"")+'</p><div class="meta"><span>'+esc(a.c||"")+'</span><button class="btn" data-i="'+i+'">'+(free?'Unduh':'Beli')+'</button></div></div></article>');
+      out.push('<article class="card"><div class="thumb" style="background-color:'+l[1]+'">'+im+'<span class="price'+(free?' free':'')+'">'+(free?'Gratis':rp(p))+'</span></div><div class="body"><h3>'+esc(a.n||"")+'</h3><p>'+esc(a.d||"")+'</p><div class="meta"><span>'+esc(a.c||"")+'</span><button class="btn" data-i="'+i+'">'+(free?'Dapatkan':'Beli')+'</button></div></div></article>');
     }});
   $("grid").innerHTML=out.length?out.join(""):'<div class="empty">Belum ada aset di sini. Coba kategori atau kata kunci lain.</div>';
 }
